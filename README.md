@@ -1,5 +1,6 @@
 [Textrix](https://github.com/abdulrahman-mh/textrix) Live Demo
 
+- [Demo Link](https://textrix-demo.vercel.app/)
 
 ## TODO
 
