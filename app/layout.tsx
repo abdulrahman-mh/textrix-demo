@@ -9,7 +9,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: 'Textrix | Demo',
+  title: 'Textrix / Demo',
   description: 'A powerful & customizable Medium-style rich text editor',
 };
 

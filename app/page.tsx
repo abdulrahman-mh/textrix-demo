@@ -6,6 +6,18 @@ import { Media, CodeBlock, Emoji, BubbleMenu, FloatingMenu } from 'textrix/featu
 
 import Nav from './ui/nav';
 
+// Deploy URL for <https://github.com/abdulrahman-mh/iframe-extractor>
+const IFRAME_EXTRACTOR_URL = "https://iframe-extractor-hzya.onrender.com/api"
+
+async function fetchMedia({ url }: { url: string }) {
+  const res = await fetch(`${IFRAME_EXTRACTOR_URL}/media?url=${encodeURIComponent(url)}&maxwidth=9000&maxheight=9000`);
+  if (!res.ok) {
+    throw new Error(`Failed to fetch media: ${res.statusText}`);
+  }
+  const data = await res.json();
+  return data;
+}
+
 export default function Home() {
   const editorRef = useRef<HTMLDivElement | null>(null);
   const [editor, setEditor] = useState<Editor | null>(null);
@@ -16,7 +28,7 @@ export default function Home() {
         element: editorRef.current,
         autoTextDirection: true,
         markdownShortcuts: true,
-        features: [Media.configure({}), CodeBlock, Emoji, BubbleMenu, FloatingMenu],
+        features: [Media.configure({fetchMediaEmbedData: fetchMedia}), CodeBlock, Emoji, BubbleMenu, FloatingMenu],
       });
 
       setEditor(editor);
