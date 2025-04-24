@@ -27,7 +27,7 @@ importers:
         specifier: ^19.0.0
         version: 19.1.0(react@19.1.0)
       textrix:
-        specifier: ^0.1.1
+        specifier: 0.1.6
         version: 0.1.6
     devDependencies:
       '@eslint/eslintrc':
