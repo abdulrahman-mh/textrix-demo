@@ -34,14 +34,15 @@ export default function Nav({ editor }: { editor: Editor | null }) {
   }, [isHtmlModalOpen, isJsonModalOpen, editor]);
 
   return (
-    <div className="flex justify-between items-center [@media(max-width:365px)]:justify-center max-w-[1072px] w-full mx-auto h-[70px] px-4">
+    <div className="flex justify-between items-center max-w-[1072px] w-full mx-auto h-[70px] px-4">
       <div>
         <a
-          href="https://github.com/abdulrahman-mh/textrix"
+          target="_blank" rel="noreferrer noopener" 
+          href="https://textrix.vercel.app"
           draggable="false"
           className="inline-block select-none mr-5 [@media(max-width:365px)]:mr-0">
           <Image
-            src="/textrix.svg"
+            src="/textrix-logo.png"
             width={150}
             height={50}
             alt="textrix logo"
@@ -49,7 +50,7 @@ export default function Nav({ editor }: { editor: Editor | null }) {
           />
         </a>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center flex-col sm:flex-row">
         {/* <a
           className="flex items-center mr-8 cursor-pointer"
           href="#">
@@ -64,30 +65,19 @@ export default function Nav({ editor }: { editor: Editor | null }) {
         <button
           type="button"
           onClick={() => setHtmlModalOpen(true)}
-          className="cursor-pointer hidden sm:flex flex-nowrap text-nowrap text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-2 gap-1 py-1 items-center">
-          <Image
-            src="/code2.svg"
-            width={20}
-            height={20}
-            alt="Export HTML"
-          />
+          className="cursor-pointer sm:mr-1 mb-1 sm:mb-0 text-nowrap text-white bg-[#1a8917] hover:bg-[#0f730c] focus:outline-none rounded-[99em] px-[10px] py-0 items-center">
           Export HTML
         </button>
         <button
           type="button"
           onClick={() => setJsonModalOpen(true)}
-          className="cursor-pointer hidden sm:flex items-center flex-nowrap text-nowrap text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-2 gap-1 py-1 mr-5 ml-2">
-          <Image
-            src="/brackets-curly.svg"
-            width={20}
-            height={20}
-            alt="Export JSON"
-          />
+          className="cursor-pointer sm:mr-4 text-nowrap text-white bg-[#1a8917] hover:bg-[#0f730c] focus:outline-none rounded-[99em] px-[10px] py-0 items-center">
           Export JSON
         </button>
         <a
+          target="_blank" rel="noreferrer noopener" 
           href="https://github.com/abdulrahman-mh/textrix"
-          className="flex gap-2 [@media(max-width:365px)]:hidden">
+          className="hidden sm:flex gap-2 [@media(max-width:365px)]:hidden">
           <Image
             src="/github.svg"
             width={16}
