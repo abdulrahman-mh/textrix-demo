@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import CheckMark from "../../../public/check-mark.svg";
-import Copy from "../../../public/copy.svg";
-import X from "../../../public/x.svg";
+import { CheckMark, Copy, X } from "../icons";
 
 export default function ModelHeader({
   copy,
