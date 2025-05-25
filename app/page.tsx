@@ -20,6 +20,7 @@ async function fetchMedia({ url }: { url: string }) {
 
 export default function Home() {
   const editorRef = useRef<HTMLDivElement | null>(null);
+  const editorInstanceRef = useRef<Editor | null>(null);
   const [editor, setEditor] = useState<Editor | null>(null);
 
   useEffect(() => {
@@ -31,11 +32,13 @@ export default function Home() {
         features: [Media.configure({fetchMediaEmbedData: fetchMedia}), CodeBlock, Emoji, BubbleMenu, FloatingMenu],
       });
 
+      editorInstanceRef.current = editor;
       setEditor(editor);
     }
 
     return () => {
-      editor?.destroy();
+      editorInstanceRef.current?.destroy();
+      editorInstanceRef.current = null;
       setEditor(null);
     };
   }, []);

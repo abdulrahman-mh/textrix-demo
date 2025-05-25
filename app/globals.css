@@ -1,2 +1,52 @@
-@import 'tailwindcss';
-@import 'textrix/themes/textrix.min.css';
+@import "tailwindcss";
+@import "textrix/themes/textrix.min.css";
+
+button {
+  cursor: pointer;
+}
+
+body.lock-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+@keyframes popupFadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.popup-enter {
+  animation: popupFadeSlideUp 0.35s ease forwards;
+  transition: opacity 100ms ease, transform 150ms ease;
+}
+.popup-leave {
+  opacity: 0;
+  transform: translateY(2rem);
+}
+
+pre code > span.line-number {
+  position: absolute;
+  left: 0;
+  width: 2.5rem;
+  text-align: right;
+  padding-right: 0.5rem;
+  user-select: none;
+  color: #1f2328;
+  font-size: 12px;
+  line-height: 20px;
+}
+pre code > span.line-number::before {
+  counter-increment: line;
+  content: counter(line);
+  display: block;
+  height: 1.4em;
+}
+pre code > span.line-number + * {
+  display: inline;
+}

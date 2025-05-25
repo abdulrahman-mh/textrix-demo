@@ -9,6 +9,8 @@ import hljs from 'highlight.js/lib/core';
 import htmlLang from 'highlight.js/lib/languages/xml';
 import jsonLang from 'highlight.js/lib/languages/json';
 import ModelHeader from './popup/model-header';
+import Article from './article';
+import Logo from './logo';
 
 import 'highlight.js/styles/github.css'; // GitHub Light theme
 
@@ -18,6 +20,7 @@ hljs.registerLanguage('json', jsonLang);
 export default function Nav({ editor }: { editor: Editor | null }) {
   const [isHtmlModalOpen, setHtmlModalOpen] = useState(false);
   const [isJsonModalOpen, setJsonModalOpen] = useState(false);
+  const [isPublishModelOpen, setPublishModelOpen] = useState(false);
   const [htmlContent, setHtmlContent] = useState('');
   const [jsonContent, setJsonContent] = useState('');
 
@@ -34,57 +37,52 @@ export default function Nav({ editor }: { editor: Editor | null }) {
   }, [isHtmlModalOpen, isJsonModalOpen, editor]);
 
   return (
-    <div className="flex justify-between items-center max-w-[1072px] w-full mx-auto h-[70px] px-4">
-      <div>
-        <a
+    <div className="flex justify-between gap-1 sm:gap-0 items-center max-w-[1072px] w-full mx-auto h-[70px] px-4">
+      <Logo />
+      <div className="flex items-center">
+
+        {/* <button
+          type="button"
+          onClick={() => setHtmlModalOpen(true)}
+          className="cursor-pointer sm:mr-1 mb-1 sm:mb-0 text-nowrap text-white text-[15px] bg-[#1a8917] hover:bg-[#0f730c] focus:outline-none rounded-[99em] px-[10px] py-[3px] items-center">
+          Export HTML
+        </button>
+        <button
+          type="button"
+          onClick={() => setJsonModalOpen(true)}
+          className="cursor-pointer sm:mr-4 text-nowrap text-white text-[15px] bg-[#1a8917] hover:bg-[#0f730c] focus:outline-none rounded-[99em] px-[10px] py-[3px] items-center">
+          Export JSON
+        </button> */}
+        <button
+          type="button"
+          onClick={() => setPublishModelOpen(true)}
+          className="cursor-pointer mr-3 min-[350px]:mr-9 text-nowrap text-white text-[15px] bg-[#1a8917] hover:bg-[#0f730c] focus:outline-none rounded-[99em] px-[10px] py-[3px] items-center">
+          Publish
+        </button>
+          <a
           target="_blank" rel="noreferrer noopener" 
-          href="https://textrix.vercel.app"
-          draggable="false"
-          className="inline-block select-none mr-5 [@media(max-width:365px)]:mr-0">
-          <Image
-            src="/textrix-logo.png"
-            width={150}
-            height={50}
-            alt="textrix logo"
-            className="pointer-events-none min-w-[100px] max-w-[150px] w-full select-none"
-          />
-        </a>
-      </div>
-      <div className="flex items-center flex-col sm:flex-row">
-        {/* <a
-          className="flex items-center mr-8 cursor-pointer"
-          href="#">
+          className="flex items-center mr-2 shrink-0 sm:mr-4 cursor-pointer hover:underline"
+          title="Support Development by Buy Me a Coffee"
+          href="https://buymeacoffee.com/abdelrahmanm">
           <Image
             src="/buy-me-a-coffee.svg"
             width={35}
             height={35}
             alt="Support Development by Buy Me a Coffee"
           />
-          Buy Me a Coffee (Soon)
-        </a> */}
-        <button
-          type="button"
-          onClick={() => setHtmlModalOpen(true)}
-          className="cursor-pointer sm:mr-1 mb-1 sm:mb-0 text-nowrap text-white bg-[#1a8917] hover:bg-[#0f730c] focus:outline-none rounded-[99em] px-[10px] py-0 items-center">
-          Export HTML
-        </button>
-        <button
-          type="button"
-          onClick={() => setJsonModalOpen(true)}
-          className="cursor-pointer sm:mr-4 text-nowrap text-white bg-[#1a8917] hover:bg-[#0f730c] focus:outline-none rounded-[99em] px-[10px] py-0 items-center">
-          Export JSON
-        </button>
+          <span className='hidden sm:inline'>Buy Me a Coffee</span>
+        </a>
         <a
           target="_blank" rel="noreferrer noopener" 
           href="https://github.com/abdulrahman-mh/textrix"
-          className="hidden sm:flex gap-2 [@media(max-width:365px)]:hidden">
+          className="flex shrink-0 gap-2 hover:underline">
           <Image
             src="/github.svg"
             width={16}
             height={16}
             alt="GitHub"
           />
-          <span>GitHub</span>
+          <span className='hidden sm:inline'>GitHub</span>
         </a>
       </div>
 
@@ -123,6 +121,9 @@ export default function Nav({ editor }: { editor: Editor | null }) {
           />
         </pre>
       </Modal>
+
+      {/* Publish Modal */}
+      {isPublishModelOpen && <Article editor={editor!} hljs={hljs} onClose={() => setPublishModelOpen(false)} />}
     </div>
   );
 }
