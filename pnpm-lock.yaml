@@ -27,8 +27,8 @@ importers:
         specifier: ^19.0.0
         version: 19.1.0(react@19.1.0)
       textrix:
-        specifier: 0.1.8
-        version: 0.1.8
+        specifier: 0.1.9
+        version: 0.1.9
     devDependencies:
       '@eslint/eslintrc':
         specifier: ^3
@@ -2276,8 +2276,8 @@ packages:
     resolution: {integrity: sha512-DZ4yORTwrbTj/7MZYq2w+/ZFdI6OZ/f9SFHR+71gIVUZhOQPHzVCLpvRnPgyaMpfWxxk/4ONva3GQSyNIKRv6A==}
     engines: {node: '>=10'}
 
-  textrix@0.1.8:
-    resolution: {integrity: sha512-Bk1M1VCC4hSk66pjDG4cNYWgEe7MNkYaLERlbGzBpQO4/PlZ2rw1DGjjF/4XPT3BhM+setnqMDNPGvC3lkZVUw==}
+  textrix@0.1.9:
+    resolution: {integrity: sha512-rLnGsHwt3DKQnOzRBjds5EMaWT5BgkNTUSMu2fi3P9i94CHoYVkOnziq76Bw3kBtl7ZSnNr9xAfYygtK0u93+g==}
 
   timers-ext@0.1.8:
     resolution: {integrity: sha512-wFH7+SEAcKfJpfLPkrgMPvvwnEtj8W4IurvEyrKsDleXnKLCDw71w8jltvfLa8Rm4qQxxT4jmDBYbJG/z7qoww==}
@@ -4928,7 +4928,7 @@ snapshots:
       mkdirp: 1.0.4
       yallist: 4.0.0
 
-  textrix@0.1.8:
+  textrix@0.1.9:
     dependencies:
       '@floating-ui/dom': 1.7.0
       debounce: 2.2.0

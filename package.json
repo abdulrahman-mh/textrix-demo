@@ -15,7 +15,7 @@
     "next": "15.3.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "textrix": "0.1.8"
+    "textrix": "0.1.9"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
